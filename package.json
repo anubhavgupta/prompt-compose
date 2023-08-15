@@ -1,0 +1,50 @@
+{
+  "name": "prompt-builder",
+  "version": "0.0.1",
+  "description": "A JS library for building and managing GPT prompts documents.",
+  "source": "./src/index.mjs",
+  "main": "./dist/main.mjs",
+  "module": "./dist/module.js",
+  "keywords": [
+    "chatGPT",
+    "GPT",
+    "prompt",
+    "prompt-builder",
+    "builder",
+    "document",
+    "prompt-document",
+    "manager",
+    "nodejs",
+    "AI",
+    "library"
+  ],
+  "scripts": {
+    "test": "node ./test/index.mjs",
+    "build": "parcel build",
+    "prepare": "npm run build"
+  },
+  "targets": {
+    "main": {
+		  "optimize": true,
+      "outputFormat": "esmodule",
+      "engines": {
+        "node": ">= 16"
+      }
+	  },
+    "module": {
+		  "optimize": true,
+      "outputFormat": "esmodule",
+      "engines": {
+        "browsers": "Chrome 80"
+      }
+	  }
+  },
+  "author": "anubhav200@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

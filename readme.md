@@ -1,4 +1,4 @@
-# prompt-builder
+# prompt-compose
 
 This library provides basic axioms for building and managing GPT prompts. 
 

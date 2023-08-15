@@ -1,7 +1,7 @@
 # prompt-builder
 
 Example code:
-===
+====
 
 ```JS
 import { System, Section, Format, compose, Statement, None } from "prompt-builder";
@@ -14,7 +14,7 @@ You are an AI assistant, you help users solve the given problem.
 - You can end your answer with "END_END_END" text.
 `));
 
-const DataFormater =  Section(
+const ResponseFormater =  Section(
     Statement("Format"),
     Format([
         {
@@ -29,8 +29,8 @@ const getProblemSolverPromptMaker = ()=>{
         SystemStatement,
         Section(
             Statement("User"),
-            DataFormater,
-            Section(Statement("Problem")),
+                ResponseFormater,
+                Section(Statement("Problem")),
         ),
         Section(
             Statement("AI"),
@@ -48,6 +48,7 @@ const problemSolverPromptMaker = getProblemSolverPromptMaker();
 const promptGenerated = problemSolverPromptMaker("How to build a website?");
 
 console.log(promptGenerated);
+// O/P:
 // System:
     
 //     You are an AI assistant, you help users solve the given problem. 

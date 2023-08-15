@@ -1,5 +1,8 @@
 # prompt-builder
 
+This library provides basic axioms for building and managing GPT prompts.
+
+
 Example code:
 ====
 

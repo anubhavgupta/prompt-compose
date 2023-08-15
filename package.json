@@ -1,10 +1,15 @@
 {
   "name": "prompt-compose",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A JS library for building and managing GPT prompts documents.",
   "source": "./src/index.mjs",
   "main": "./dist/main.mjs",
   "module": "./dist/module.js",
+  "files": [
+    "dist",
+    "src",
+    "test"
+   ],
   "keywords": [
     "chatGPT",
     "GPT",
@@ -23,6 +28,11 @@
     "build": "parcel build",
     "prepare": "npm run test && npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anubhavgupta/prompt-compose.git"
+  },
+  "homepage": "https://github.com/anubhavgupta/prompt-compose",
   "targets": {
     "main": {
 		  "optimize": true,

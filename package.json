@@ -1,5 +1,5 @@
 {
-  "name": "prompt-builder",
+  "name": "prompt-man",
   "version": "0.0.1",
   "description": "A JS library for building and managing GPT prompts documents.",
   "source": "./src/index.mjs",
@@ -21,7 +21,7 @@
   "scripts": {
     "test": "node ./test/index.mjs",
     "build": "parcel build",
-    "prepare": "npm run build"
+    "prepare": "npm run test && npm run build"
   },
   "targets": {
     "main": {

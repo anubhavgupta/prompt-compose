@@ -3,6 +3,13 @@
 This library provides basic axioms for building and managing GPT prompts.
 
 
+Installation:
+====
+NodeJS: 
+```bash
+npm install prompt-builder
+```
+
 Example code:
 ====
 

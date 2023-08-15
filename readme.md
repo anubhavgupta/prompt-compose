@@ -7,14 +7,14 @@ Installation:
 ====
 NodeJS: 
 ```bash
-npm install prompt-builder
+npm install prompt-man
 ```
 
 Example code:
 ====
 
 ```JS
-import { System, Section, Format, compose, Statement, None } from "prompt-builder";
+import { System, Section, Format, compose, Statement, None } from "prompt-man";
 
 const SystemStatement = System(Statement(`
 You are an AI assistant, you help users solve the given problem. 

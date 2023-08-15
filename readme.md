@@ -1,6 +1,6 @@
 # prompt-builder
 
-This library provides basic axioms for building and managing GPT prompts.
+This library provides basic axioms for building and managing GPT prompts. 
 
 
 Installation:

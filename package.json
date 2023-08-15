@@ -1,5 +1,5 @@
 {
-  "name": "prompt-man",
+  "name": "prompt-compose",
   "version": "0.0.1",
   "description": "A JS library for building and managing GPT prompts documents.",
   "source": "./src/index.mjs",

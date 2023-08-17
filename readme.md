@@ -1,6 +1,6 @@
 # prompt-compose
 
-This library provides basic axioms for building and managing GPT prompts. It helps you build small and resuable prompt components and then let you compose them together to build larger ones.  
+This library provides basic axioms for building and managing GPT prompts. It helps you build small and reusable prompt components and then let you compose them together to build larger ones.  
 
 # Installation:
 

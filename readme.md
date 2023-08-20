@@ -329,7 +329,7 @@ const userPrompt = (problemToSolve: PromptIO, responseFormat: Array<any> | Objec
 // create a AI response completion prompt.
 // accepts a response Statement, fallsback to None(empty string)
 const aiPrompt = (response: PromptIO = None())=>{
-    return Section(
+    return Instruction(
         "AI",
         response
     );
@@ -380,8 +380,6 @@ const promptGenerated = generateSolverPrompt();
 
 // AI:
 //    
-//
-
 
 const generateSolverPrompt = getProblemSolver("How to make a pizza?", [
     {
@@ -409,6 +407,5 @@ const promptGenerated = generateSolverPrompt();
 //         How to make a pizza?
 //
 // AI:
-//    
 //
 ```

@@ -2,14 +2,14 @@
   "name": "prompt-compose",
   "version": "0.0.3",
   "description": "A JS library for building and managing GPT prompts documents.",
-  "source": "./src/index.mjs",
   "main": "./dist/main.mjs",
   "module": "./dist/module.js",
+  "types": "dist/types.d.ts",
   "files": [
     "dist",
     "src",
     "test"
-   ],
+  ],
   "keywords": [
     "chatGPT",
     "GPT",
@@ -21,12 +21,17 @@
     "manager",
     "nodejs",
     "AI",
-    "library"
+    "library",
+    "prompt maker",
+    "maker"
   ],
   "scripts": {
-    "test": "node ./test/index.mjs",
     "build": "parcel build",
-    "prepare": "npm run test && npm run build"
+    "build-test": "parcel build --target tests",
+    "watch": "parcel watch",
+    "test": "npm run build-test && node ./dist/tests/index.js",
+    "prepare": "npm run test && npm run build",
+    "check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -35,24 +40,38 @@
   "homepage": "https://github.com/anubhavgupta/prompt-compose",
   "targets": {
     "main": {
-		  "optimize": true,
+      "optimize": true,
       "outputFormat": "esmodule",
       "engines": {
         "node": ">= 16"
-      }
-	  },
+      },
+      "source": "./src/index.ts"
+    },
     "module": {
-		  "optimize": true,
+      "optimize": true,
       "outputFormat": "esmodule",
       "engines": {
         "browsers": "Chrome 80"
-      }
-	  }
+      },
+      "source": "./src/index.ts"
+    },
+    "tests": {
+      "optimize": false,
+      "outputFormat": "global",
+      "engines": {
+        "node": ">= 16"
+      },
+      "source": "./tests/index.ts"
+    }
   },
   "author": "anubhav200@gmail.com",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.9.3"
+    "@parcel/packager-ts": "^2.9.3",
+    "@parcel/transformer-typescript-types": "^2.9.3",
+    "@types/node": "^20.5.1",
+    "parcel": "^2.9.3",
+    "typescript": "^5.1.6"
   },
   "engines": {
     "node": ">=16"

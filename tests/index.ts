@@ -7,7 +7,8 @@ import {
     None,
     Divider,
     Instruction,
-    setConfig
+    setConfig,
+    PromptIO
 } from "../src";
 import { equal } from "assert";
 import { runner } from "./runner";
@@ -156,49 +157,53 @@ Do task 2.`
             instructionSpacing: "\n"
         });
     
-        const systemStatement = System(
-            Statement(
+        const systemStatement = () => System(
 `You are an AI assistant, you help users solve the given problem. 
 - Your answeres are brief and to the point.
 - You only answer in the format given by the user.
 - If you don't know the answer to a question, you truthfully say that I don't know it. 
 - You can end your answer with "END_END_END" text.`
-            )
+        );
+
+        const userQuery = (problemToSolve: PromptIO, responseFormat: Array<any> | Object)=>{
+            return Section(
+                "User",
+                Instruction(
+                    "Format",
+                    Format(responseFormat)
+                ),
+                problemInstruction(problemToSolve)
+            );
+        };
+
+        const aiResponse = (response: PromptIO = None())=>{
+            return Section(
+                "AI",
+                response
+            );
+        }
+
+        const problemInstruction = (problemToSolve: PromptIO) => Instruction(
+            "Problem",
+            problemToSolve
         );
     
-        const problemSection = Instruction(
-            Statement("Problem"),
-            Statement("How to make a website?")
-        );
-    
-        const formatTheReponse = Format([
+        const responseFormat = [
             {
                 stepIndex: "<number>",
                 stepDetails: "<string>"
             }
-        ]);
+        ];
     
-        const getProblemSolverPromptMaker = ()=>{
-            const solverPrompt =  compose(
-                systemStatement,
-                Section(
-                    Statement("User"),
-                    Instruction(
-                        Statement("Format"),
-                        formatTheReponse
-                    ),
-                    problemSection
-                ),
-                Section(
-                    Statement("AI"),
-                    None()
-                )
+        const getProblemSolverPromptMaker = (problemToSolve: PromptIO)=>{
+            return compose(
+                systemStatement(),
+                userQuery(problemToSolve, responseFormat),
+                aiResponse()
             );
-        
-            return solverPrompt;
         }
         
-        const problemSolverPromptMaker = getProblemSolverPromptMaker();
+        const problemSolverPromptMaker = getProblemSolverPromptMaker(Statement("How to build a website?"));
         const promptGenerated = problemSolverPromptMaker();
         const expectedPrompt = 
 `System:
@@ -214,7 +219,7 @@ User:
             ResponseJSON: [{"stepIndex":"<number>","stepDetails":"<string>"}]
     
     Problem:
-        How to make a website?
+        How to build a website?
 
 AI:
     

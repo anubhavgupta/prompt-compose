@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+      "experimentalDecorators": false,
+      "types": ["node"],
+      "lib": ["es2021", "DOM"]
+    },
+    "include": ["src/**/*", "tests/**/*"]
+}

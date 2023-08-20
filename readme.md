@@ -9,6 +9,13 @@ NodeJS:
 npm install prompt-compose
 ```
 
+Browser:
+```JS
+// via CDL link
+import { Statement } from "https://unpkg.com/prompt-compose@0.1.0/dist/module.js";
+const prompt = Statement("Hello World");
+```
+
 # Basic axioms for building prompts:
 
 ### Statement

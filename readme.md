@@ -409,3 +409,19 @@ const promptGenerated = generateSolverPrompt();
 // AI:
 //
 ```
+# Development
+
+- All axioms like `Statement`, `Instruction`, etc. are in `./src/base-components` directory.
+- Configuration utilities are in `./src/config/`
+- Utilities like `compose` and `Tabs` are in `./src/utils/`
+- Tests are in `./tests/index.ts`
+
+```bash
+
+# make required code changes then run following command to run tests
+npm run test
+
+# to build the project
+npm run build
+
+```

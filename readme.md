@@ -27,6 +27,8 @@ Creates a new Instruction of text with `title` and `content`.
 
 
 ```js
+import { Instruction } from "prompt-compose";
+
 const problemInstruction = Instruction(
     "Problem Statement",
     "How to make a website?"
@@ -69,6 +71,8 @@ Creates a new `Section` of text with `title` and `content`. It is built using `I
 
 
 ```js
+import { Section, Instruction } from "prompt-compose";
+
 const problemSection = Section(
     "Problem Statement",
     "How to make a website?"
@@ -105,6 +109,8 @@ const userSection = Section(
 ### Format
 Asks for a data structure and creates a prompt where it asks GPT to return the response in the given format. 
 ```JS
+import { Format } from "prompt-compose";
+
 const formatTheReponse = Format([
     {
         stepIndex: "<number>",
@@ -122,6 +128,8 @@ formatTheReponse();
 Creates a system `Instruction`. 
 
 ```JS
+import { System } from "prompt-compose";
+
 const systemStatement = System(
 `You are an AI assistant, you help users solve the given problem. 
 - Your answeres are brief and to the point.
@@ -146,6 +154,8 @@ systemStatement();
 Let you compose multiple prompts together.  
 
 ```JS
+import { compose } from "prompt-compose";
+
 // Example 1: 
 const makePrompt = compose(
     systemStatement,
@@ -187,6 +197,8 @@ makePrompt2(
 Configurable, adds a division between 2 given prompts. use `setConfig()` to configure the look and feel of `Divider`.
 
 ```JS
+import { Divider, Statement } from "prompt-compose";
+
 // Example 1: 
 const promptWithDivider = compose(
     Statement("Do task 1."),
@@ -221,6 +233,8 @@ promptWithDivider2()
 ### None
 An empty input.
 ```JS
+import { None, Section, Statement } from "prompt-compose";
+
 const expectedResponse = Section(
         Statement("AI"),
         None()
@@ -234,7 +248,7 @@ expectedResponse();
 ### Configuration
 This lib provides `getConfig()` and `setConfig()` functions to configure various aspects of the Axioms.
 ```JS
-import { setConfig } from "prompt-compose";
+import { setConfig, getConfig } from "prompt-compose";
 
 setConfig({
     tabType: " ", // \t or space; String should be used for tab ?
@@ -372,7 +386,7 @@ const promptGenerated = generateSolverPrompt();
 const generateSolverPrompt = getProblemSolver("How to make a pizza?", [
     {
         stepIndex: "<number>",
-        stepDetails: "<string>"
+        stepDetails: "<string>",
         requiresOven: "<boolean>"
     }
 ]);

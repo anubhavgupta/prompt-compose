@@ -203,7 +203,7 @@ Do task 2.`
             );
         }
         
-        const problemSolverPromptMaker = getProblemSolverPromptMaker(Statement("How to build a website?"));
+        const problemSolverPromptMaker = getProblemSolverPromptMaker("How to build a website?");
         const promptGenerated = problemSolverPromptMaker();
         const expectedPrompt = 
 `System:

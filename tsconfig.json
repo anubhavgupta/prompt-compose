@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
       "experimentalDecorators": false,
-      "jsxImportSource": "preact",
       "types": ["node"],
       "lib": ["es2021", "DOM"]
     },

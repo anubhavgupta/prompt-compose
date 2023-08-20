@@ -1,10 +1,11 @@
 {
   "name": "prompt-compose",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "A JS library for building and managing GPT prompts documents.",
   "main": "./dist/main.mjs",
   "module": "./dist/module.js",
-  "types": "dist/types.d.ts",
+  "type": "module",
+  "types": "./dist/types.d.ts",
   "files": [
     "dist",
     "src",
@@ -16,6 +17,11 @@
     "prompt",
     "prompt-builder",
     "builder",
+    "prompt-compose",
+    "compose",
+    "join",
+    "make",
+    "group",
     "document",
     "prompt-document",
     "manager",
@@ -23,15 +29,15 @@
     "AI",
     "library",
     "prompt maker",
-    "maker"
+    "maker",
+    "typescript"
   ],
   "scripts": {
-    "build": "parcel build",
-    "build-test": "parcel build --target tests",
-    "watch": "parcel watch",
+    "check": "tsc --noEmit",
+    "build": "parcel build --no-cache",
+    "build-test": "npm run check && parcel build --target tests --no-cache",
     "test": "npm run build-test && node ./dist/tests/index.js",
-    "prepare": "npm run test && npm run build",
-    "check": "tsc --noEmit"
+    "prepare": "npm run test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -45,7 +51,8 @@
       "engines": {
         "node": ">= 16"
       },
-      "source": "./src/index.ts"
+      "source": "./src/index.ts",
+      "distDir": "./dist/"
     },
     "module": {
       "optimize": true,
@@ -53,15 +60,20 @@
       "engines": {
         "browsers": "Chrome 80"
       },
+      "source": "./src/index.ts",
+      "distDir": "./dist/"
+    },
+    "types": {
       "source": "./src/index.ts"
     },
     "tests": {
       "optimize": false,
-      "outputFormat": "global",
+      "outputFormat": "esmodule",
       "engines": {
         "node": ">= 16"
       },
-      "source": "./tests/index.ts"
+      "source": "./tests/index.ts",
+      "distDir": "./dist/tests/"
     }
   },
   "author": "anubhav200@gmail.com",
